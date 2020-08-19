@@ -4,6 +4,7 @@ import hello.hellospring.domain.Member;
 
 import java.util.*;
 
+// 레포지토리 내부 메서드는 최대한 간결한 기계식 단어로? 네이밍 하는 것이 좋음
 public class MemoryMemberRepository implements MemberRepository {
 
   private static Map<Long, Member> store = new HashMap<>();

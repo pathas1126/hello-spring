@@ -12,12 +12,11 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
 
-  //  private DataSource dataSource;
-  private EntityManager em;
+  private final MemberRepository memberRepository;
 
   @Autowired
-  public SpringConfig(EntityManager em) {
-    this.em = em;
+  public SpringConfig(MemberRepository memberRepository) {
+    this.memberRepository = memberRepository;
   }
 
   //  public SpringConfig(DataSource dataSource) {
@@ -26,11 +25,6 @@ public class SpringConfig {
 
   @Bean
   public MemberService memberService() {
-    return new MemberService(memberRepository()); // 의존성 주입
-  }
-
-  @Bean
-  public MemberRepository memberRepository() {
-    return new JpaMemberRepository(em);
+    return new MemberService(memberRepository); // 의존성 주입
   }
 }

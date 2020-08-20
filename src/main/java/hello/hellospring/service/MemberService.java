@@ -21,7 +21,6 @@ public class MemberService { // 서비스 내부 메서드는 비즈니스와 �
   }
 
   public Long join(Member member) {
-    // 중복 회원 입력 거부
     validateDuplicatedMember(member);
     memberRepository.save(member);
     return member.getId();

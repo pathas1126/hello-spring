@@ -18,6 +18,7 @@ public class MemberController {
   @Autowired // autoWired 어노테이션이 생성자가 호출될 때 매개변수 클래스의 인스턴스를 자동으로 연결함
   public MemberController(MemberService memberService) {
     this.memberService = memberService;
+    System.out.println("memberService = " + memberService.getClass());
   }
 
   @GetMapping("/members/new")
